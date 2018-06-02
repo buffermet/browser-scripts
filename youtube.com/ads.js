@@ -1,27 +1,31 @@
 var yungtravla_muted = false
-setInterval(function(){
+yungtravla_loop = setInterval(function(){
 	// Automatically skip ads
-	
+	if ( document.querySelector("div#player.ytd-watch").innerText.match(/Skip Ad/g) ) {
+		document.querySelectorAll("div#player.ytd-watch div").forEach(function(div){
+			div.innerText == "Skip Ad" ? div.click() : ""
+		})
+	}
 	// Mute ads
 	if ( 
 		( 
-			document.querySelector("div#player.ytd-watch").innerText.match(/video will begin in/ig) 
-			|| document.querySelector("div#player.ytd-watch").innerText.match(/can skip to video in/ig) 
+			document.querySelector("div#player.ytd-watch").innerText.match(/video will begin/ig) 
+			|| document.querySelector("div#player.ytd-watch").innerText.match(/you can skip to video/ig) 
 			|| document.querySelector("div#player.ytd-watch").innerText.match(/video will play after ad/ig) 
 		) 
 		&& !yungtravla_muted 
 	) {
-		document.querySelector("button.ytp-mute-button.ytp-button").click()
+		document.querySelector("div#player.ytd-watch button.ytp-mute-button.ytp-button").click()
 		yungtravla_muted = true
 	} else if ( 
 		!( 
-			document.querySelector("div#player.ytd-watch").innerText.match(/video will begin in/ig) 
-			|| document.querySelector("div#player.ytd-watch").innerText.match(/can skip to video in/ig) 
+			document.querySelector("div#player.ytd-watch").innerText.match(/video will begin/ig) 
+			|| document.querySelector("div#player.ytd-watch").innerText.match(/you can skip to video/ig) 
 			|| document.querySelector("div#player.ytd-watch").innerText.match(/video will play after ad/ig) 
 		) 
 		&& yungtravla_muted 
 	) {
-		document.querySelector("button.ytp-mute-button.ytp-button").click()
+		document.querySelector("div#player.ytd-watch button.ytp-mute-button.ytp-button").click()
 		yungtravla_muted = false
 	}
 	// Close/remove other ads
@@ -34,4 +38,5 @@ setInterval(function(){
 	document.querySelectorAll("div#player-ads").forEach(function(ad){
 		ad.remove()
 	})
-}, 333)
+}, 666)
+setInterval(yungtravla_loop, 9999)
