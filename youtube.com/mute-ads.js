@@ -4,6 +4,7 @@ setInterval(function(){
     ( 
       document.querySelector("div#player.ytd-watch").innerHTML.match(/your video will begin in/i) 
       || document.querySelector("div#player.ytd-watch").innerHTML.match(/you can skip to video in/i) 
+      || document.querySelector("div#player.ytd-watch").innerHTML.match(/video will play after ad/i) 
     ) 
     && !yungtravla_muted 
   ) {
@@ -13,6 +14,7 @@ setInterval(function(){
     !( 
       document.querySelector("div#player.ytd-watch").innerHTML.match(/your video will begin in/i) 
       || document.querySelector("div#player.ytd-watch").innerHTML.match(/you can skip to video in/i) 
+      || document.querySelector("div#player.ytd-watch").innerHTML.match(/video will play after ad/i) 
     ) 
     && yungtravla_muted 
   ) {
