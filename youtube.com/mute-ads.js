@@ -1,9 +1,21 @@
 var yungtravla_muted = false
 setInterval(function(){
-  if ( ( document.body.innerHTML.match(/your video will begin/ig) || document.body.innerHTML.match(/you can skip/ig) ) && !yungtravla_muted ) {
+  if ( 
+    ( 
+      document.querySelector("div#player.ytd-watch").innerHTML.match(/your video will begin in/i) 
+      || document.querySelector("div#player.ytd-watch").innerHTML.match(/you can skip to video in/i) 
+    ) 
+    && !yungtravla_muted 
+  ) {
     document.querySelector("button.ytp-mute-button.ytp-button").click()
     yungtravla_muted = true
-  } else if ( !( document.body.innerHTML.match(/your video will begin/ig) || document.body.innerHTML.match(/you can skip/ig) ) && yungtravla_muted ) {
+  } else if (
+    !( 
+      document.querySelector("div#player.ytd-watch").innerHTML.match(/your video will begin in/i) 
+      || document.querySelector("div#player.ytd-watch").innerHTML.match(/you can skip to video in/i) 
+    ) 
+    && yungtravla_muted 
+  ) {
     document.querySelector("button.ytp-mute-button.ytp-button").click()
     yungtravla_muted = false
   }
