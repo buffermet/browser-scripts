@@ -24,11 +24,14 @@ setInterval(function(){
 		document.querySelector("button.ytp-mute-button.ytp-button").click()
 		yungtravla_muted = false
 	}
-	// Close pop-up ads
+	// Close/remove other ads
 	if ( document.querySelectorAll("div.overlays-action-tray div.close-padding").length > 0 ) {
 		document.querySelector("div.overlays-action-tray div.close-padding").click()
 	}
 	document.querySelectorAll("div.annotation").forEach(function(annotation){
 		annotation.remove()
+	})
+	document.querySelectorAll("div#player-ads").forEach(function(ad){
+		ad.remove()
 	})
 }, 333)
