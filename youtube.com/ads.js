@@ -31,4 +31,4 @@ setInterval(function(){
 	document.querySelectorAll("div.annotation").forEach(function(annotation){
 		annotation.remove()
 	})
-}, 200)
+}, 333)
