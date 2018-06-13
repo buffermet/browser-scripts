@@ -1,9 +1,10 @@
 var yungtravla_muted = false
 yungtravla_loop = setInterval(function(){
 	// Automatically skip ads
-	if ( document.querySelector("div#player.ytd-watch").innerText.match(/Skip Ad/g) ) {
+	if ( document.querySelector("div#player.ytd-watch").innerText.match(/Skip/g) ) {
 		document.querySelectorAll("div#player.ytd-watch div").forEach(function(div){
 			div.innerText == "Skip Ad" ? div.click() : ""
+			div.innerText == "Skip to End" ? div.click() : ""
 		})
 	}
 	// Mute ads
