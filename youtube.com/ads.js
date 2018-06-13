@@ -4,7 +4,7 @@ let yungtravla_hide_annotations = true,
     	if ( document.querySelector("div#player.ytd-watch") ) {
     
     		// Skip ads
-    		if ( document.querySelector("div#player.ytd-watch").innerText.match(/Skip/g) ) {
+    		if ( document.querySelector("div#player.ytd-watch").innerText.match(/skip (ad|to end)/ig) ) {
     			document.querySelectorAll("div#player.ytd-watch div").forEach(function(div){
     				div.innerText == "Skip Ad" ? div.click() : ""
     				div.innerText == "Skip to End" ? div.click() : ""
