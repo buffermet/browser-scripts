@@ -4,7 +4,7 @@ let yungtravla_hide_annotations = true,
     	if ( document.querySelector("div#player.ytd-watch") ) {
     
     		// Skip ads
-    		if ( document.querySelector("div#player.ytd-watch").innerText.match(/skip (ad|to end)/ig) ) {
+    		if ( document.querySelector("div#player.ytd-watch").innerText.match(/skip\s(ad|to\send)/ig) ) {
     			document.querySelectorAll("div#player.ytd-watch div").forEach(function(div){
     				div.innerText == "Skip Ad" ? div.click() : ""
     				div.innerText == "Skip to End" ? div.click() : ""
@@ -13,9 +13,9 @@ let yungtravla_hide_annotations = true,
     
     		// Mute ads
     		if (
-    			document.querySelector("div#player.ytd-watch").innerText.match(/video will begin/ig) 
-    			|| document.querySelector("div#player.ytd-watch").innerText.match(/you can skip to video/ig) 
-    			|| document.querySelector("div#player.ytd-watch").innerText.match(/video will play after ad/ig) 
+    			document.querySelector("div#player.ytd-watch").innerText.match(/video\swill\sbegin/ig) 
+    			|| document.querySelector("div#player.ytd-watch").innerText.match(/you\scan\sskip\sto\svideo/ig) 
+    			|| document.querySelector("div#player.ytd-watch").innerText.match(/video\swill\splay\safter\sad/ig) 
     		) {
     			if (!yungtravla_muted) {
     				document.querySelector("div#player.ytd-watch button.ytp-mute-button.ytp-button").click()
