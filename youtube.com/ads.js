@@ -8,26 +8,20 @@ yungtravla_loop = setInterval(function(){
 		})
 	}
 	// Mute ads
-	if ( 
-		( 
+	if(
 			document.querySelector("div#player.ytd-watch").innerText.match(/video will begin/ig) 
 			|| document.querySelector("div#player.ytd-watch").innerText.match(/you can skip to video/ig) 
 			|| document.querySelector("div#player.ytd-watch").innerText.match(/video will play after ad/ig) 
-		) 
-		&& !yungtravla_muted 
 	) {
-		document.querySelector("div#player.ytd-watch button.ytp-mute-button.ytp-button").click()
-		yungtravla_muted = true
-	} else if ( 
-		!( 
-			document.querySelector("div#player.ytd-watch").innerText.match(/video will begin/ig) 
-			|| document.querySelector("div#player.ytd-watch").innerText.match(/you can skip to video/ig) 
-			|| document.querySelector("div#player.ytd-watch").innerText.match(/video will play after ad/ig) 
-		) 
-		&& yungtravla_muted 
-	) {
-		document.querySelector("div#player.ytd-watch button.ytp-mute-button.ytp-button").click()
-		yungtravla_muted = false
+		if (!yungtravla_muted) {
+			document.querySelector("div#player.ytd-watch button.ytp-mute-button.ytp-button").click()
+			yungtravla_muted = true
+		}
+	} else {
+		if (yungtravla_muted) {
+			document.querySelector("div#player.ytd-watch button.ytp-mute-button.ytp-button").click()
+			yungtravla_muted = false
+		}
 	}
 	// Close/remove other ads
 	if ( document.querySelectorAll("div.overlays-action-tray div.close-padding").length > 0 ) {
@@ -40,4 +34,3 @@ yungtravla_loop = setInterval(function(){
 		ad.remove()
 	})
 }, 666)
-setInterval(yungtravla_loop, 9999)
