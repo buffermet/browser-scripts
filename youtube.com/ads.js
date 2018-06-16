@@ -1,4 +1,5 @@
 // I have more time than an Arctic Whale
+// Inbefore I replace declared but useless variables
 let yungtravla_hide_annotations = true,
     yungtravla_muted = false,
     yungtravla_loop = setInterval(function(){
