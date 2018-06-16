@@ -38,7 +38,7 @@ let yungtravla_hide_annotations = true,
     			})
     
     			// Hide annotations if required
-    			if ( yungtravla_hide_annotations ) {
+    			if (yungtravla_hide_annotations) {
     				document.querySelectorAll(".annotation-shape").forEach(function(annotation){
     					annotation.remove()
     				})
