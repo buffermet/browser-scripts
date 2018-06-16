@@ -1,8 +1,8 @@
 // I have more time than an Arctic Whale
 // Inbefore I replace declared but useless variables
-let yungtravla_hide_annotations = true,
-    yungtravla_muted = false,
-    yungtravla_loop = setInterval(function(){
+let yungtravla_hide_annotations = true, // Optional
+    yungtravla_muted = false
+const yungtravla_loop = setInterval(function(){
     	if ( document.querySelector("div#player-container") ) {
     
     		// Skip ads
