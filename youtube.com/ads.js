@@ -6,7 +6,7 @@ const yungtravla_loop = setInterval(function(){
     	if ( document.querySelector("div#player-container") ) {
     
     		// Skip ads
-    		if ( document.querySelector("div#player-container").innerText.match(/skip\s(ad|to\send)/ig) ) {
+    		if ( document.querySelector("div#player-container").innerText.match(/skip\s*(ad|to\s*end)/ig) ) {
     			document.querySelectorAll("div#player-container div").forEach(function(div){
     				div.innerText.match(/^Skip\s*Ad$/i) ? div.click() : ""
     				div.innerText.match(/^Skip\s*to\s*End$/i) ? div.click() : ""
