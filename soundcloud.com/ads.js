@@ -1,3 +1,5 @@
+// Inbefore I replace declared but useless variables
+
 let yungtravla_muted = false
 const yungtravla_loop = setInterval(()=>{
 	// Mute ads
