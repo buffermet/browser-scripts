@@ -9,8 +9,7 @@ const yungtravla_loop = setInterval(()=>{
 		// Skip ads
 		if ( document.querySelector("div#movie_player").innerText.match(/skip\s(ad|to\send)/ig) ) {
 			document.querySelectorAll("div#movie_player div").forEach(div=>{
-				div.innerText.match(/^Skip\s*Ad$/i) ? div.click() : ""
-				div.innerText.match(/^Skip\s*to\s*End$/i) ? div.click() : ""
+				div.innerText.match(/^Skip\s*(Ad|to\s*End)$/i) ? div.click() : ""
 			})
 		} else {
 			// Mute ads
