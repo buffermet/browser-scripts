@@ -33,6 +33,9 @@ const yungtravla_loop = setInterval(()=>{
 			document.querySelectorAll("div#movie_player div.close-padding").forEach(close=>{
 				close.click()
 			})
+			document.querySelectorAll("button.ytp-ad-overlay-close-button").forEach(close=>{
+				close.click()
+			})
 			document.querySelectorAll("div#player-ads").forEach(ad=>{
 				ad.remove()
 			})
