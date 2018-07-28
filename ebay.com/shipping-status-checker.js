@@ -28,10 +28,6 @@ const yungtravla_check_status = () => {
 			// Check if shipping status has updated
 			yungtravla_stripped_response = yungtravla_req.responseText.replace(/\n/g, "").replace(/.*trackingEventContainer.*?>/g, "").replace(/<div\ style.*/g, "").toLowerCase()
 
-			console.log(yungtravla_stripped_response.length)
-			console.log(yungtravla_shipping_status.length)
-			console.log(yungtravla_shipping_status == yungtravla_stripped_response)
-
 			// Start alarm if shipping status has changed
 			if (yungtravla_shipping_status != yungtravla_stripped_response) {
 				for (var i = 1; i < 11; i++) {
