@@ -1,10 +1,3 @@
-/*
-* PLEASE NOTE
-*
-* As soon as this script is executed, the alarm bell should ring 10 times,
-* this means that the script is working.
-*/
-
 // You must declare these two variables
 var yungtravla_tracking_number = "XXXXXXXXXXXX"
 var yungtravla_check_delay = 60000
@@ -29,7 +22,7 @@ const yungtravla_check_status = () => {
 			yungtravla_stripped_response = yungtravla_req.responseText.replace(/\n/g, "").replace(/.*trackingEventContainer.*?>/g, "").replace(/<div\ style.*/g, "").toLowerCase()
 
 			// Start alarm if shipping status has changed
-			if (yungtravla_shipping_status != yungtravla_stripped_response) {
+			if (yungtravla_shipping_status != "" && yungtravla_shipping_status != yungtravla_stripped_response) {
 				for (var i = 1; i < 11; i++) {
 					setTimeout(()=>{
 						new Audio(yungtravla_alarm_bell).play()
