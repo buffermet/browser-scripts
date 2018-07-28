@@ -35,6 +35,8 @@ const yungtravla_check_status = () => {
 						new Audio(yungtravla_alarm_bell).play()
 					}, i*1000)
 				}
+
+				alert("The shipping status has changed!")
 			}
 
 			// Remember shipping status
