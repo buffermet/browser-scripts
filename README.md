@@ -1,2 +1,3 @@
-# fuckoff
-How I get past my daily annoyances
+# browser-scripts
+
+JavaScript payloads that make life better.
