@@ -24,7 +24,7 @@ const yungtravla_check_status = () => {
 	yungtravla_req.open("GET", document.querySelector(".oly-b iframe").src)
 	yungtravla_req.send()
 	yungtravla_req.onreadystatechange = () => {
-		if (yungtravla_req.readyState == 4) {
+		if (yungtravla_req.readyState == 4 && yungtravla_req.status == 200) {
 			// Check if shipping status has updated
 			yungtravla_stripped_response = yungtravla_req.responseText.replace(/\n/g, "").replace(/.*trackingEventContainer.*?>/g, "").replace(/<div\ style.*/g, "").toLowerCase()
 
