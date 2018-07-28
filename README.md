@@ -1,3 +1,3 @@
 # browser-scripts
 
-JavaScript payloads that make life better.
+JavaScript extensions that make life better.
