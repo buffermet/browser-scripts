@@ -1,3 +1,10 @@
+/*
+* This script checks the status of your ebay shipment.
+* 
+* If it has changed, you will be alerted with a 10s alarm bell,
+* as well as an alert message.
+*/
+
 // You must declare these two variables
 var yungtravla_tracking_number = "XXXXXXXXXXXX"
 var yungtravla_check_delay = 60000
