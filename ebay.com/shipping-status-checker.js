@@ -1,7 +1,7 @@
 /*
 * This script checks the status of your ebay shipment.
 * 
-* If it has changed, you will be alerted with a 10s alarm bell,
+* If it has changed, you will be alerted with an alarm bell,
 * as well as an alert message.
 */
 
@@ -25,18 +25,23 @@ const yungtravla_check_status = () => {
 	yungtravla_req.send()
 	yungtravla_req.onreadystatechange = () => {
 		if (yungtravla_req.readyState == 4 && yungtravla_req.status == 200) {
-			// Check if shipping status has updated
-			yungtravla_stripped_response = yungtravla_req.responseText.replace(/\n/g, "").replace(/.*trackingEventContainer.*?>/g, "").replace(/<div\ style.*/g, "").toLowerCase()
+			// Indicate that the shipment status is being checked
+			yungtravla_title = document.title
+			document.title = "Checking shipment..."
+			setTimeout(()=>{
+				document.title = yungtravla_title
+			}, 3000)
 
 			// Start alarm if shipping status has changed
+			yungtravla_stripped_response = yungtravla_req.responseText.replace(/\n/g, "").replace(/.*trackingEventContainer.*?>/g, "").replace(/<div\ style.*/g, "").toLowerCase()
 			if (yungtravla_shipping_status != "" && yungtravla_shipping_status != yungtravla_stripped_response) {
-				for (var i = 1; i < 11; i++) {
+				alert("The shipping status has changed!")
+
+				for (var i = 1; i < 61; i++) {
 					setTimeout(()=>{
 						new Audio(yungtravla_alarm_bell).play()
 					}, i*1000)
 				}
-
-				alert("The shipping status has changed!")
 			}
 
 			// Remember shipping status
