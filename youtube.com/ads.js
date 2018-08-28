@@ -3,12 +3,12 @@
 let yungtravla_hide_annotations = true, // Optional
     yungtravla_muted = false
 
-const yungtravla_loop = setInterval(()=>{
+const yungtravla_loop = setInterval(async()=>{
 	if ( document.querySelector("div#movie_player") ) {
 
 		// Skip ads
 		if ( document.querySelector("div#movie_player").innerText.match(/skip\s(ad|to\send)/ig) ) {
-			document.querySelectorAll("div#movie_player div").forEach(div=>{
+			document.querySelectorAll("div#movie_player div").forEach(async div=>{
 				div.innerText.match(/^Skip\s*(Ad|to\s*End)$/i) ? div.click() : ""
 			})
 		} else {
@@ -30,19 +30,19 @@ const yungtravla_loop = setInterval(()=>{
 			}
 
 			// Close/remove other ads
-			document.querySelectorAll("div#movie_player div.close-padding").forEach(close=>{
+			document.querySelectorAll("div#movie_player div.close-padding").forEach(async close=>{
 				close.click()
 			})
-			document.querySelectorAll("button.ytp-ad-overlay-close-button").forEach(close=>{
+			document.querySelectorAll("button.ytp-ad-overlay-close-button").forEach(async close=>{
 				close.click()
 			})
-			document.querySelectorAll("div#player-ads").forEach(ad=>{
+			document.querySelectorAll("div#player-ads").forEach(async ad=>{
 				ad.remove()
 			})
 
 			// Hide annotations if required
 			if (yungtravla_hide_annotations) {
-				document.querySelectorAll(".annotation-shape").forEach(annotation=>{
+				document.querySelectorAll(".annotation-shape").forEach(async annotation=>{
 					annotation.remove()
 				})
 			}
