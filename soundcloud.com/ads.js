@@ -1,7 +1,8 @@
 // Inbefore I replace declared but useless variables
 
 let yungtravla_muted = false
-const yungtravla_loop = setInterval(()=>{
+
+const yungtravla_loop = setInterval(async()=>{
 	// Mute ads
 	if ( !yungtravla_muted && document.querySelector(".playControlsPanel.is-visible") ) {
 		document.querySelector(".volume__button").click()
