@@ -1,12 +1,17 @@
 
-// Choose at which point a song restarts on Soundcloud
+/* 
+*	
+*	Choose at which point a song restarts on Soundcloud
+*	
+*	HINT: click the bottom left timer
+*	
+*/
 
 let lilprism_loop;
 
 const setLimit = () => {
 	clearInterval(lilprism_loop);
 	const time_string = prompt("Loop at: ");
-	location.hash = time_string;
 	lilprism_loop = setInterval(()=>{
 		const loop_time = parseInt( time_string.replace(/[^0-9]/g, "") );
 		const current_time_string = document.querySelector(".playbackTimeline__timePassed > span:nth-child(2)").innerText;
@@ -17,7 +22,7 @@ const setLimit = () => {
 	}, 1000);
 }
 
-try {	
+try {
 	document.querySelector(".playbackTimeline__timePassed").addEventListener("click", setLimit);
 } catch(ignore) {
 	self.addEventListener("load", ()=>{
