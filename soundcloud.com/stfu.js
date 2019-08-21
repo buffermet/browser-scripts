@@ -7,12 +7,12 @@
 *	
 */
 
-let lilprism_loop;
+let yungtravla_loop;
 
 const setLimit = () => {
-	clearInterval(lilprism_loop);
+	clearInterval(yungtravla_loop);
 	const time_string = prompt("Loop at: ");
-	lilprism_loop = setInterval(()=>{
+	yungtravla_loop = setInterval(()=>{
 		const loop_time = parseInt( time_string.replace(/[^0-9]/g, "") );
 		const current_time_string = document.querySelector(".playbackTimeline__timePassed > span:nth-child(2)").innerText;
 		const current_time = parseInt( current_time_string.replace(/[^0-9]/g, "") );
